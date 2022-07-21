@@ -3,15 +3,16 @@ from tkinter import filedialog
 from tkinter import messagebox
 from PIL import Image
 import webbrowser
+import os
 
+
+
+path = os.getcwd()
 def callback(url):
     webbrowser.open_new(url)
     
 root = tk.Tk()
-
-root.iconbitmap(r'C:\Users\imobles\Desktop\scripts\img2pdf\favicon.ico')
-
-
+root.iconbitmap(path+'\\favicon.ico')
 
 canvas1 = tk.Canvas(root, width=550, height=550, bg='gray95', relief='raised')
 canvas1.pack()
@@ -24,9 +25,7 @@ footer = tk.Label(root, text='© Feito por Rafael Ribeiro de Lima', font=12, cur
 footer.pack(side='bottom')
 footer.bind("<Button-1>", lambda e: callback("https://www.linkedin.com/in/rafael-ribeiro-de-lima/"))
 
-
-
-def getJPG():
+def getImages():
     global image_list
 
     image_list = []
@@ -40,15 +39,12 @@ def getJPG():
         except:
             pass
 
-    
-
-
-browseButton_JPG = tk.Button(root, text="      Selecione as imagens desejadas     ", command=getJPG, bg='royalblue', fg='white',
+browseButton_Images = tk.Button(root, text="      Selecione as imagens desejadas     ", command=getImages, bg='royalblue', fg='white',
                              font=('helvetica', 12, 'bold'))
-canvas1.create_window(250, 200, window=browseButton_JPG)
+canvas1.create_window(250, 200, window=browseButton_Images)
 
 
-def convertToPNG():
+def convertToPDF():
     global image_list
 
     im_0 = image_list[0]
@@ -58,8 +54,8 @@ def convertToPNG():
     image_list = []
 
 
-saveAsButton_PNG = tk.Button(text="            Converter para PDF            ", command=convertToPNG, bg='royalblue', fg='white',
+saveAsButton_PDF = tk.Button(text="            Converter para PDF            ", command=convertToPDF, bg='royalblue', fg='white',
                              font=('helvetica', 12, 'bold'))
-canvas1.create_window(250, 280, window=saveAsButton_PNG)
+canvas1.create_window(250, 280, window=saveAsButton_PDF)
 
 root.mainloop()
