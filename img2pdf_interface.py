@@ -8,8 +8,6 @@ from PIL import Image
 import webbrowser
 import os
 
-
-
 path = os.getcwd()
 def callback(url):
     webbrowser.open_new(url)
@@ -45,7 +43,6 @@ def getImages():
 browseButton_Images = tk.Button(root, text="      Selecione as imagens desejadas     ", command=getImages, bg='royalblue', fg='white',
                              font=('helvetica', 12, 'bold'))
 canvas1.create_window(250, 200, window=browseButton_Images)
-
 
 def convertToPDF():
     global image_list
