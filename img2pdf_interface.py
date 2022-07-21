@@ -1,3 +1,6 @@
+from install_packages import check_packages
+check_packages()
+
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
